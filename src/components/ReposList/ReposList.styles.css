@@ -1,6 +1,7 @@
 /* Container Styles */
 .container {
   font-family: Arial, sans-serif;
+  max-width: 80vw;
   margin: 0 auto;
   padding: 20px;
   background-color: #f6f8fa;
