@@ -60,7 +60,7 @@ export const ReposList = () => {
           )}
           {isRepoInfoLoading && <div className="loading">Loading...</div>}
           {selectedRepo && (
-            <RepoInfo selectedRepo={selectedRepo}/>
+            <RepoInfo selectedRepo={selectedRepo} setSelectedRepo={setSelectedRepo}/>
           )}
         </div>
       </div>

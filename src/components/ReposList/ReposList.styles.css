@@ -1,5 +1,6 @@
 /* Container Styles */
 .container {
+  display: flex;
   font-family: Arial, sans-serif;
   max-width: 80vw;
   margin: 0 auto;
@@ -28,4 +29,15 @@ h1 {
 ul {
   list-style: none;
   padding: 0;
+}
+
+/* Left Frame Styles */
+.left-frame {
+  flex: 1;
+  padding-right: 20px;
+}
+
+/* Right Frame Styles */
+.right-frame {
+  flex: 1;
 }
