@@ -1,4 +1,5 @@
 import {ISelectedRepo} from "../../api/repos.ts";
+import './RepoInfo.styles.css';
 
 interface IRepoInfoProps {
   selectedRepo: ISelectedRepo | null;
@@ -17,7 +18,7 @@ export const RepoInfo = ({selectedRepo, setSelectedRepo}: IRepoInfoProps) => {
       <button onClick={handleCloseClick}>X</button>
       <h2>{selectedRepo.repoName}</h2>
       <p>Repo owner: {selectedRepo.repoOwner}</p>
-      <p>
+      <p className={selectedRepo.isPrivate ? 'private' : 'public'}>
         {selectedRepo.isPrivate
           ? 'This is a private repository'
           : 'This is a public repository'
