@@ -28,8 +28,9 @@ export const ReposList = () => {
       {isReposLoading && <div className="loading">Loading...</div>}
       {!isReposLoading && <ul>
         {repos.map((repo: IRepo) => (
-          <Repo key={repo.id}
-                {...repo}
+          <Repo
+            key={repo.id}
+            {...repo}
           />
         ))}
       </ul>}
