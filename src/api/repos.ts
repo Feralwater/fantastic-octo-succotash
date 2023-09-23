@@ -9,6 +9,15 @@ interface IReposList {
   repositories: IRepo[];
 }
 
+export interface ISelectedRepo {
+  id: string;
+  repoName: string;
+  repoOwner: string;
+  isPrivate: boolean;
+  numberOfFiles: number;
+  fileContent: string;
+}
+
 export const getReposList = (): Promise<IReposList> => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -29,7 +38,7 @@ export const getReposList = (): Promise<IReposList> => {
   });
 };
 
-export const getRepo = (id: string): Promise<IRepo> => {
+export const getRepo = (id: string): Promise<ISelectedRepo> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       fetch("/repo.json")
@@ -40,7 +49,7 @@ export const getRepo = (id: string): Promise<IRepo> => {
           return response.json();
         })
         .then((data) => {
-          const repo = data.repositories.find((repo: IRepo) => repo.id === id);
+          const repo = data.repositories.find((repo:ISelectedRepo) => repo.id === id);
           resolve(repo);
         })
         .catch((error) => {

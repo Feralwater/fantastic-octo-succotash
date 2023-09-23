@@ -9,7 +9,7 @@ export const Repo = ({
                        repoOwner
                      }: IRepo) => {
   return (
-    <li className="repo">
+    <div className="repo">
       <div>
         <h2>{repoName}</h2>
         <div className="meta-info">
@@ -21,6 +21,6 @@ export const Repo = ({
           <span>{repoOwner}</span>
         </div>
       </div>
-    </li>
+    </div>
   );
 };
