@@ -11,9 +11,8 @@ export const ReposList = () => {
     (async () => {
       try {
         setIsReposLoading(true);
-        getReposList().then((res) => {
-          setRepos(res.repositories);
-        });
+        const res = await getReposList();
+        setRepos(res.repositories);
       } catch (e) {
         console.error(e);
       } finally {
