@@ -1,0 +1,28 @@
+{
+  "repositories": [
+    {
+      "id": "1",
+      "repoName": "sample-repo-1",
+      "repoSize": "120 MB",
+      "repoOwner": "user1"
+    },
+    {
+      "id": "2",
+      "repoName": "awesome-project",
+      "repoSize": "80 MB",
+      "repoOwner": "user2"
+    },
+    {
+      "id": "3",
+      "repoName": "cool-app",
+      "repoSize": "45 MB",
+      "repoOwner": "user3"
+    },
+    {
+      "id": "4",
+      "repoName": "test-repository",
+      "repoSize": "60 MB",
+      "repoOwner": "user4"
+    }
+  ]
+}
