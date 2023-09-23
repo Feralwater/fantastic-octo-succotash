@@ -1,4 +1,3 @@
-import './App.css'
 import {Repos} from "./pages/Repos.tsx";
 
 function App() {
