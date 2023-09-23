@@ -3,19 +3,17 @@ import './RepoInfo.styles.css';
 
 interface IRepoInfoProps {
   selectedRepo: ISelectedRepo | null;
-  setSelectedRepo: (repo: ISelectedRepo | null) => void;
+  closeRepoInfo: () => void;
 }
 
-export const RepoInfo = ({selectedRepo, setSelectedRepo}: IRepoInfoProps) => {
+export const RepoInfo = ({selectedRepo, closeRepoInfo}: IRepoInfoProps) => {
   if (!selectedRepo) {
     return null;
   }
 
-  const handleCloseClick = () => setSelectedRepo(null);
-
   return (
     <div className="repo-details">
-      <button onClick={handleCloseClick}>X</button>
+      <button onClick={closeRepoInfo}>X</button>
       <h2>{selectedRepo.repoName}</h2>
       <p>Repo owner: {selectedRepo.repoOwner}</p>
       <p className={selectedRepo.isPrivate ? 'private' : 'public'}>
