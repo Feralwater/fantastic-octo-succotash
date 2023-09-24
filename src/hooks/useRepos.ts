@@ -11,7 +11,7 @@ export const useRepos = () => {
     (async () => {
       try {
         setIsReposLoading(true);
-        const res = await getReposList();
+        const res = await getReposList(1);
         setRepos(res);
       } catch (e) {
         console.error(e);

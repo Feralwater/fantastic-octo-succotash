@@ -21,7 +21,7 @@ export interface ISelectedRepo {
 }
 
 export const getReposList = (pageNumber: number): Promise<IReposList> => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
       fetch("/reposList.json")
         .then((response) => {
@@ -30,11 +30,21 @@ export const getReposList = (pageNumber: number): Promise<IReposList> => {
           }
           return response.json();
         })
-        .then((data) => {
-          resolve(data);
+        .then((data: IReposList) => {
+          const perPage = 4;
+          const startIndex = (pageNumber - 1) * perPage;
+          const endIndex = startIndex + perPage;
+          const paginatedRepos = data.repositories.slice(startIndex, endIndex);
+
+          resolve({
+            repositories: paginatedRepos,
+            totalItems: data.totalItems,
+            itemsPerPage: perPage,
+          });
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
+          reject(error);
         });
     }, 1000);
   });
@@ -51,7 +61,7 @@ export const getRepo = (id: string): Promise<ISelectedRepo> => {
           return response.json();
         })
         .then((data) => {
-          const repo = data.repositories.find((repo:ISelectedRepo) => repo.id === id);
+          const repo = data.repositories.find((repo: ISelectedRepo) => repo.id === id);
           resolve(repo);
         })
         .catch((error) => {
