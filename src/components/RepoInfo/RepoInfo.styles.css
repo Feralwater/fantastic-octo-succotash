@@ -1,12 +1,12 @@
 /* Style the repo-details container */
 .repo-details {
-  background-color: #fff; /* GitHub's container background color */
-  border: 1px solid #ddd; /* GitHub's container border */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* GitHub's container shadow */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 20px;
-  position: relative;
-  overflow: auto; /* Add scrollbars for overflowing content */
+  overflow: auto;
+  max-height: 80%;
 }
 
 /* Style the close button */
@@ -18,11 +18,11 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
-  color: #666; /* GitHub's secondary text color */
+  color: #666;
 }
 
 .repo-details button:hover {
-  color: #0366d6; /* GitHub's primary color for links and buttons */
+  color: #0366d6;
 }
 
 /* Style the header */
@@ -30,13 +30,13 @@
   font-size: 24px;
   margin-top: 10px;
   margin-bottom: 20px;
-  color: #333; /* GitHub's header text color */
+  color: #333;
 }
 
 /* Style the repository owner */
 .repo-details p {
   font-size: 16px;
-  color: #333; /* GitHub's text color */
+  color: #333;
   margin-bottom: 10px;
 }
 
