@@ -12,9 +12,10 @@ export const ReposList = () => {
     isReposLoading,
     isRepoInfoLoading,
     handleRepoClick,
-    closeRepoInfo
+    closeRepoInfo,
+    handlePageChange
   } = useRepos();
-
+  console.log(repos)
   return (
     <div className="container">
       <h1>GitHub Repositories</h1>
@@ -46,7 +47,7 @@ export const ReposList = () => {
       <Pagination
         totalItems={repos.totalItems}
         itemsPerPage={repos.itemsPerPage}
-        onPageChange={(page) => console.log(page)}
+        onPageChange={handlePageChange}
       />
     </div>
   );

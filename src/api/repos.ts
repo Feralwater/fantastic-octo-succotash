@@ -20,7 +20,7 @@ export interface ISelectedRepo {
   fileContent: string;
 }
 
-export const getReposList = (): Promise<IReposList> => {
+export const getReposList = (pageNumber: number): Promise<IReposList> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       fetch("/reposList.json")

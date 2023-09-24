@@ -33,6 +33,18 @@ export const useRepos = () => {
     }
   }, []);
 
+  const handlePageChange = useCallback(async (page: number) => {
+    try {
+      setIsReposLoading(true);
+      const res = await getReposList(page);
+      setRepos(res);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsReposLoading(false);
+    }
+  }, []);
+
   const closeRepoInfo = useCallback(() => setSelectedRepo(null), []);
 
   return {
@@ -41,6 +53,7 @@ export const useRepos = () => {
     selectedRepo,
     isRepoInfoLoading,
     handleRepoClick,
-    closeRepoInfo
+    closeRepoInfo,
+    handlePageChange,
   }
 }
