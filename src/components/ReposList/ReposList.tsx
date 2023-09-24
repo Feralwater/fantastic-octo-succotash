@@ -15,7 +15,7 @@ export const ReposList = () => {
     closeRepoInfo,
     handlePageChange
   } = useRepos();
-  console.log(repos)
+
   return (
     <div className="container">
       <h1>GitHub Repositories</h1>
