@@ -5,8 +5,10 @@ export interface IRepo {
   repoOwner: string;
 }
 
-interface IReposList {
+export interface IReposList {
   repositories: IRepo[];
+  totalItems: number;
+  itemsPerPage: number;
 }
 
 export interface ISelectedRepo {

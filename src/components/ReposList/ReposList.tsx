@@ -3,6 +3,7 @@ import './ReposList.styles.css';
 import {RepoInfo} from "../RepoInfo/RepoInfo.tsx";
 import {Repo} from "../Repo/Repo.tsx";
 import {useRepos} from "../../hooks/useRepos.ts";
+import {Pagination} from "../Pagination/Pagination.tsx";
 
 export const ReposList = () => {
   const {
@@ -22,7 +23,7 @@ export const ReposList = () => {
           {isReposLoading && <div className="loading">Loading...</div>}
           {!isReposLoading && (
             <ul>
-              {repos.map((repo: IRepo) => (
+              {repos.repositories.map((repo: IRepo) => (
                 <li onClick={() => handleRepoClick(repo.id)} key={repo.id}>
                   <Repo {...repo} />
                 </li>
@@ -42,6 +43,11 @@ export const ReposList = () => {
           )}
         </div>
       </div>
+      <Pagination
+        totalItems={repos.totalItems}
+        itemsPerPage={repos.itemsPerPage}
+        onPageChange={(page) => console.log(page)}
+      />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import {useCallback, useEffect, useState} from "react";
-import {getRepo, getReposList, IRepo, ISelectedRepo} from "../api/repos.ts";
+import {getRepo, getReposList, IReposList, ISelectedRepo} from "../api/repos.ts";
 
 export const useRepos = () => {
-  const [repos, setRepos] = useState<IRepo[]>([]);
+  const [repos, setRepos] = useState<IReposList>({repositories: [], totalItems: 0, itemsPerPage: 0});
   const [isReposLoading, setIsReposLoading] = useState(false);
   const [selectedRepo, setSelectedRepo] = useState<ISelectedRepo | null>(null);
   const [isRepoInfoLoading, setIsRepoInfoLoading] = useState(false);
@@ -12,7 +12,7 @@ export const useRepos = () => {
       try {
         setIsReposLoading(true);
         const res = await getReposList();
-        setRepos(res.repositories);
+        setRepos(res);
       } catch (e) {
         console.error(e);
       } finally {
